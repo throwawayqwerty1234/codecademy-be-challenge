@@ -1,0 +1,26 @@
+# fly.toml file generated for floral-wave-4366 on 2023-04-03T05:17:53-04:00
+
+app = "floral-wave-4366"
+kill_signal = "SIGINT"
+kill_timeout = 5
+mounts = []
+primary_region = "bos"
+processes = []
+
+[[services]]
+  internal_port = 3000
+  processes = ["app"]
+  protocol = "tcp"
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443

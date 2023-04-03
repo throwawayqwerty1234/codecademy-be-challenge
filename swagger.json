@@ -1,0 +1,13 @@
+{
+  "swaggerDefinition": {
+    "swagger": "2.0",
+    "info": {
+      "title": "Cat Pic API",
+      "version": "1.0.0",
+      "description": "API for uploading and managing cat pictures"
+    },
+    "basePath": "/api",
+    "schemes": ["https"]
+  },
+  "apis": ["./src/*.ts"]
+}
