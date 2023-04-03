@@ -6,6 +6,7 @@ This repo contains the API for the Codecademy BE challenge. The API is built usi
 ```bash
 # Clone the repo
 git clone
+yarn
 yarn compile
 yarn start
 ```
@@ -13,6 +14,7 @@ yarn start
 <!-- development -->
 ## 🛠️ Development
 ```bash
+yarn
 yarn watch
 yarn start:dev
 ```
