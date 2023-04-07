@@ -283,10 +283,6 @@ app.get('/api/cats/:id', (req: Request<{id: string}>, res: Response) => {
  *             properties:
  *               id:
  *                 type: string
- *                 description: The ID of the cat pic.
- *               url:
- *                 type: string
- *                 description: The URL of the cat pic file.
  *       500:
  *         description: Internal Server Error.
  *         schema:
