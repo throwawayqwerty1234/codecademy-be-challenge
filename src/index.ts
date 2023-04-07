@@ -70,10 +70,15 @@ const upload = multer({storage: storage});
  *           properties:
  *             id:
  *               type: string
- *               description: The ID of the uploaded cat pic.
  *             message:
  *               type: string
- *               description: A message indicating that the cat pic was uploaded successfully.
+ *       400:
+ *         description: No file uploaded.
+ *         schema:
+ *          type: object
+ *          properties:
+ *           error:
+ *             type: string
  */
 app.post(
   '/api/cats',
@@ -114,7 +119,13 @@ app.post(
  *           properties:
  *             message:
  *               type: string
- *               description: A message indicating that the cat pic was deleted successfully.
+ *       500:
+ *         description: Error deleting file.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
  */
 app.delete(
   '/api/cats/:id',
@@ -164,11 +175,20 @@ app.delete(
  *           properties:
  *             message:
  *               type: string
- *               description: A message indicating that the cat pic was updated successfully.
  *       400:
  *         description: No file uploaded.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
  *       500:
  *         description: Error updating file.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
  */
 app.put(
   '/api/cats/:id',
@@ -222,9 +242,13 @@ app.put(
  *         description: The cat pic file.
  *         schema:
  *           type: file
- *           description: The cat pic file.
  *       404:
  *         description: The specified cat pic was not found.
+ *         schema:
+ *          type: object
+ *          properties:
+ *            error:
+ *             type: string
  */
 app.get('/api/cats/:id', (req: Request<{id: string}>, res: Response) => {
   // Return the specified file to the client
@@ -262,7 +286,12 @@ app.get('/api/cats/:id', (req: Request<{id: string}>, res: Response) => {
  *                 type: string
  *                 description: The URL of the cat pic file.
  *       500:
- *         description: An internal server error occurred.
+ *         description: Internal Server Error.
+ *         schema:
+ *           type: object
+ *           properties:
+ *             error:
+ *               type: string
  */
 app.get('/api/cats', (req: Request, res: Response<Cat[] | RequestError>) => {
   const filesPath = path.join(__dirname, 'uploads');
