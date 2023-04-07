@@ -175,6 +175,8 @@ app.delete(
  *           properties:
  *             message:
  *               type: string
+ *             id:
+ *               type: string
  *       400:
  *         description: No file uploaded.
  *         schema:
